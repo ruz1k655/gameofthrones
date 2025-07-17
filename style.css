@@ -257,10 +257,11 @@ footer {
   .banner::after {
     font-size: 2rem;
   }
+}
 
 @font-face {
     font-family: 'GameOfThrones';
-    src: url('C:/Users/student/Desktop/prestolgames/fonts/GameOfThrones.ttf') format('truetype');
+    src: url('../fonts/GameOfThrones.ttf') format('truetype');
 }
 /* Исправление для страницы "О нас" */
 .about-section {
@@ -376,4 +377,4 @@ h1, h2, h3 {
 .move-up:hover, .move-down:hover {
     background: #e5c100;
 }
-}
+
