@@ -1,0 +1,379 @@
+
+
+/* === Глобальные стили === */
+:root {
+  --main-dark: #0d0d0d;
+  --gold: #d4af37;
+  --red: #8b0000;
+  --light-bg: #f0e6d2;
+  --text-dark: #333;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--light-bg);
+  color: var(--text-dark);
+  margin: 0;
+  background-image: url('../images/bg-texture.jpg');
+  background-attachment: fixed;
+}
+
+/* === Шапка в стиле Вестероса === */
+header {
+  background: linear-gradient(to right, var(--main-dark), #1a1a1a);
+  border-bottom: 3px solid var(--gold);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo h1 {
+  font-family: 'GameOfThrones', 'Cinzel', serif;
+  font-size: 2.8rem;
+  margin: 0;
+  padding: 1rem 0;
+  color: var(--gold);
+  text-shadow: 2px 2px 4px #000;
+  letter-spacing: 2px;
+}
+
+/* === Навигация === */
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  padding: 1rem;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+nav a:hover {
+  background: var(--gold);
+  color: #000;
+}
+
+/* === Баннер === */
+.banner {
+  position: relative;
+  height: 60vh;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7) contrast(1.1);
+}
+
+.banner::after {
+  content: "Добро пожаловать в Вестерос";
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  color: white;
+  font-family: 'GameOfThrones', serif;
+  font-size: 4rem;
+  text-shadow: 3px 3px 6px #000;
+}
+
+/* === Карточки товаров === */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.product-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.product-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, var(--gold), var(--red));
+}
+
+.product-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.product-card h3 {
+  margin: 1rem;
+  font-family: 'Cinzel', serif;
+  color: var(--main-dark);
+}
+
+.product-card p {
+  margin: 0 1rem 1rem;
+  color: var(--red);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* === Страница товара === */
+.product-detail {
+  display: flex;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  flex: 1;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.product-image img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-info h2 {
+  font-family: 'GameOfThrones', serif;
+  color: var(--main-dark);
+  font-size: 2.5rem;
+  margin-top: 0;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 1rem;
+}
+
+.price {
+  font-size: 2rem;
+  color: var(--red);
+  margin: 1.5rem 0;
+}
+
+.description {
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+button {
+  background: linear-gradient(to right, var(--gold), #e5c100);
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* === Футер === */
+footer {
+  background: var(--main-dark);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+  border-top: 3px solid var(--gold);
+}
+
+/* === Адаптивность === */
+/* Общие стили (работают всегда) */
+.about-section,
+.contacts-section {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  color: white;
+}
+
+/* Мобильные стили (только для маленьких экранов) */
+@media (max-width: 768px) {
+  /* Дополнительные стили для мобилок */
+}
+/* Общие стили (работают всегда) */
+.about-section,
+.contacts-section {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  color: white;
+}
+
+/* Мобильные стили (только для маленьких экранов) */
+@media (max-width: 768px) {
+  /* Дополнительные стили для мобилок */
+}
+@media (max-width: 768px) {
+  .product-detail {
+    flex-direction: column;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .banner::after {
+    font-size: 2rem;
+  }
+
+@font-face {
+    font-family: 'GameOfThrones';
+    src: url('C:/Users/student/Desktop/prestolgames/fonts/GameOfThrones.ttf') format('truetype');
+}
+/* Исправление для страницы "О нас" */
+.about-section {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+    color: white !important;
+}
+
+.about-content p {
+    color: white !important;
+}
+/* Исправление для страницы "Контакты" */
+.contacts-section {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+    color: white !important;
+}
+
+.contact-info {
+    color: white !important;
+}
+
+.contact-info p {
+    color: white !important;
+    font-size: 1.2rem;
+}
+/* Общие улучшения */
+main {
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    min-height: 70vh;
+}
+
+h1, h2, h3 {
+    color: var(--gold);
+}
+
+.product-card h3 {
+    color: var(--gold);
+    min-height: 3rem;
+}
+
+.product-card p {
+    color: var(--gold);
+    font-weight: bold;
+}
+/* ===== ФИКС ДЛЯ СТРАНИЦ "О НАС" И "КОНТАКТЫ" ===== */
+.about-section,
+.contacts-section {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    padding: 2rem !important;
+    border-radius: 10px !important;
+}
+
+.about-content,
+.contact-info,
+.about-section p,
+.contact-info p {
+    color: white !important;
+}
+
+/* Убедимся, что заголовки тоже белые */
+.about-section h2,
+.contacts-section h2 {
+    color: var(--gold) !important;
+    text-shadow: 1px 1px 2px black;
+}
+/* Десктопные стили для "О нас" и "Контакты" */
+.about-section,
+.contacts-section {
+  background: rgba(0, 0, 0, 0.8) !important;
+  color: white !important;
+  padding: 3rem !important;
+  border-radius: 15px;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+.about-content p,
+.contact-info p {
+  color: white !important;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Уберите медиазапрос, если он мешает */
+@media (min-width: 769px) {
+  .about-section img {
+    float: left;
+    margin-right: 2rem;
+    max-width: 50%;
+  }
+}
+.product-controls {
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.move-up, .move-down {
+    flex: 1;
+    padding: 5px;
+    background: var(--gold);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.move-up:hover, .move-down:hover {
+    background: #e5c100;
+}
+}
